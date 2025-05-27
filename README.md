@@ -52,8 +52,6 @@ http://localhost:8000
 Analyze the sentiment of a news headline, paragraph, or summary.
 
 **Request JSON:**
-
-```json
 {
   "text": "Adani shares rally after Q4 earnings beat estimates"
 }
