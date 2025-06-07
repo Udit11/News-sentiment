@@ -1,90 +1,129 @@
 # 🧠 AI News Sentiment Analyzer
 
-A real-time AI-powered News Sentiment Analysis microservice for Stocks and Futures & Options (F&O) trading decisions — built with **FastAPI**, **HuggingFace Transformers**, and **Docker**. Perfect for integration into algo-trading dashboards.
+An AI-powered microservice for real-time **news sentiment analysis** tailored for Stocks and F&O trading strategies. Built using **FastAPI**, **HuggingFace Transformers**, and **Docker**, this service is production-ready and easily integrable into trading platforms and dashboards.
 
 ---
 
 ## 🚀 Features
 
-- 🔍 Real-time sentiment analysis of news content
-- 🧠 Powered by a fine-tuned BERT transformer
-- 🐳 Dockerized for easy deployment anywhere
-- ⚡ FastAPI-based RESTful API with Swagger docs
-- 📦 Ready for integration into trading systems or web/mobile dashboards
+- 🔍 Analyze sentiment of news headlines or paragraphs in real-time
+- 🤖 Powered by a fine-tuned BERT-based transformer from HuggingFace
+- 🐳 Dockerized for seamless deployment
+- ⚡ High-performance RESTful API via FastAPI
+- 📄 Auto-generated interactive Swagger docs (`/docs`)
 
 ---
 
 ## 🧰 Tech Stack
 
-| Layer       | Technology                         |
-|------------|-------------------------------------|
-| Backend     | FastAPI, Python                    |
-| AI/NLP      | HuggingFace Transformers (`distilbert-base-uncased-finetuned-sst-2-english`) |
-| Containerization | Docker                         |
-| API Testing | Postman, Swagger UI (`/docs`)      |
-| Optional    | React / Next.js frontend integration |
+| Layer           | Technology                                                               |
+|----------------|--------------------------------------------------------------------------|
+| **Backend**     | FastAPI, Python                                                          |
+| **AI/NLP**       | `distilbert-base-uncased-finetuned-sst-2-english` (HuggingFace)          |
+| **Containerization** | Docker                                                             |
+| **API Testing**  | Postman, Swagger UI                                                     |
+| **Optional Frontend** | React / Next.js (integration ready)                              |
 
 ---
 
 ## 📁 Project Structure
 
+```
 ai-news-sentiment/
-├── app.py # FastAPI main entrypoint
-├── sentiment.py # Core NLP sentiment logic using HuggingFace
-├── news.py # Utility for fetching external news (optional)
-├── requirements.txt
-├── Dockerfile
+├── app.py              # FastAPI main application
+├── sentiment.py        # Sentiment analysis logic using HuggingFace
+├── news.py             # Utility functions to fetch news (optional)
+├── requirements.txt    # Python dependencies
+├── Dockerfile          # Docker build configuration
 ├── .dockerignore
 ├── .gitignore
 └── README.md
+```
 
 ---
 
 ## 🧪 API Usage
 
 ### 🔗 Base URL
+```
 http://localhost:8000
+```
 
-### 📬 Endpoint
+### 📬 Endpoint: `POST /sentiment`
 
-#### `POST /sentiment`
-
-Analyze the sentiment of a news headline, paragraph, or summary.
+Perform sentiment analysis on news content.
 
 **Request JSON:**
+```json
 {
   "text": "Adani shares rally after Q4 earnings beat estimates"
 }
+```
 
-Response JSON:
+**Response JSON:**
+```json
 {
   "label": "POSITIVE",
   "score": 0.9871
 }
+```
 
-🐳 Docker Setup
-1. Clone the Repo
-git clone https://github.com/<your-username>/ai-news-sentiment.git
+---
+
+## 🐳 Docker Setup
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/Udit11/ai-news-sentiment.git
 cd ai-news-sentiment
-2. Build the Docker Image
+```
+
+2. **Build the Docker image:**
+
+```bash
 docker build -t news-sentiment-app .
-3. Run the Container
+```
+
+3. **Run the Docker container:**
+
+```bash
 docker run -d -p 8000:8000 --name sentiment news-sentiment-app
-Your service is now live at http://localhost:8000.
+```
 
+Your service will be live at: [http://localhost:8000](http://localhost:8000)
 
-💻 Development (Without Docker)
-If you prefer to run locally without Docker:
-# Install dependencies
+---
+
+## 💻 Development Without Docker
+
+If you prefer a local development setup:
+
+1. **Install Python dependencies:**
+
+```bash
 pip install -r requirements.txt
+```
 
-# Run server
+2. **Run the FastAPI server:**
+
+```bash
 uvicorn app:app --reload
+```
 
-📜 License
-This project is open-sourced under the MIT License.
+---
 
-👨‍💻 Author
-Udit Srivastava
-AI/ML Engineer | MSc Computing (AI), Dublin City University
-✉️ uditsrivastava2347@gmail.com
+## 📜 License
+
+This project is licensed under the **MIT License**. See the `LICENSE` file for more information.
+
+---
+
+## 👨‍💻 Author
+
+**Udit Srivastava**  
+AI/ML Engineer | MSc in Computing (AI), Dublin City University  
+📧 Email: uditsrivastava2347@gmail.com  
+🔗 [LinkedIn](https://www.linkedin.com/in/udit-srivastava/)
+
+---
